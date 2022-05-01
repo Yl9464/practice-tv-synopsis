@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize')
+const allConfigs = require('../configs/sequelize')
+
 const DirectorsModel = require('./directors')
 const EpisodesModel = require('./episodes')
 const ShowDetailsModels = require('./showDetails')
-
-const allConfigs = require('../configs/sequelize')
 const environment = process.env.NODE_ENV || 'development'
 const config = allConfigs[environment]
 

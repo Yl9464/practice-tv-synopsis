@@ -5,7 +5,7 @@ const Episodes = (connection, Sequelize, Directors) => {
     episodeNum: { type: Sequelize.INTEGER },
     episodeTitle: { type: Sequelize.STRING },
     directorId: { type: Sequelize.INTEGER, primaryKey: true, references: { model: Directors, key: 'id' } },
-    synopsis: { type: Sequelize.LONGTEXT }
+    synopsis: { type: Sequelize.STRING }
   }, { paranoid: true })
 }
 

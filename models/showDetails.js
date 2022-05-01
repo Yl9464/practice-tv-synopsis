@@ -3,7 +3,7 @@ const ShowDetails = (connection, Sequelize) => {
     id: { type: Sequelize.INTEGER, autoIncremnt: true, primaryKey: true },
     showTitle: { type: Sequelize.STRING },
     developers: { type: Sequelize.STRING },
-    starts: { type: Sequelize.STRING },
+    stars: { type: Sequelize.STRING },
   }, { paranoid: true })
 }
 

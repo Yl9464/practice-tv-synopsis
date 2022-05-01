@@ -4,24 +4,27 @@
   "description": "## Instructions In the initial commit to this project, you have been provided with a data set for a TV show. Your task is to create an Express/Pug powered website that will display the information in a manner similar to the screenshots below.",
   "main": ".eslintrc.js",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon index.js",
+    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./configs/sequelize.js",
+    "dev": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
     "lint": "./node_modules/.bin/eslint --format codeframe .",
     "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe .",
     "test": "./node_modules/.bin/mocha tests/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "chai": "^4.3.6",
-    "eslint": "^8.14.0",
-    "mocha": "^9.2.2",
-    "nodemon": "^2.0.16"
-  },
   "dependencies": {
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.19.0",
     "sequelize-cli": "^6.4.1"
+  },
+    "devDependencies": {
+    "chai": "^4.3.6",
+    "eslint": "^8.14.0",
+    "mocha": "^9.2.2",
+    "nodemon": "^2.0.16",
+    "env-cmd": "^10.1.0"
   }
 }
