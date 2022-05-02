@@ -1,13 +1,13 @@
 const express = require('express')
 const { getShowDetails } = require('./controllers/showDetails')
-const { getAllEpisodes, getEpisodeByTitle, getEpisodesBySeasonNum } = require('./controllers/episodes')
-
+const { getAllEpisodes, getEpisodeByTitle } = require('./controllers/episodes')
+const { getAllDirectors } = require('./controllers/directors')
 const app = express()
 
 app.get('/details', getShowDetails)
 app.get('/episodes', getAllEpisodes)
 app.get('/episodes/:title', getEpisodeByTitle)
-app.get('/episodes/:seasonNum', getEpisodesBySeasonNum)
+app.get('/directors', getAllDirectors)
 
 app.all('*', (request, response) => {
   return response.status(404).send('Sorry, this page does not exists')

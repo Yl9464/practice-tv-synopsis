@@ -39,29 +39,8 @@ const getEpisodeByTitle = async (request, response) => {
   }
 }
 
-const getEpisodesBySeasonNum = async (request, response) => {
-  try {
-    const { seasonNum } = request.params
-
-    const seasonNumber = await models.Episodes.findAll({
-      where: { seasonNum: `%${seasonNum}%` },
-      attributes: ['seasonNum', 'episodeNum', 'episodeTitle', 'directorId', 'synopsis'],
-      include: [{
-        model: models.Directors,
-        attributes: ['directorName']
-      }]
-    })
-
-    return seasonNumber
-      ? response.send(seasonNumber)
-      : response.sendStatus(404)
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 module.exports = {
   getAllEpisodes,
   getEpisodeByTitle,
-  getEpisodesBySeasonNum,
 }

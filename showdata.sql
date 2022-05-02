@@ -24,6 +24,7 @@ deletedAt DATETIME,
 PRIMARY KEY (id)
 );
 
+
 CREATE TABLE episodes (
 id INT auto_increment,
 seasonNum VARCHAR(255),
@@ -41,15 +42,32 @@ FOREIGN KEY (directorId) REFERENCES directors(id)
 
 INSERT INTO showDetails (showTitle, developers, stars) VALUES ('Kim''s Convenience', 'Ins Choi and Kevin White', 'Paul Sun-Hyung Lee, Jean Yoon, Andrea Bang, Simu Liu, Andrew Phung, and Nicole Power');
 
-INSERT INTO directors (directorName) VALUES ('Gary Campbell');
-INSERT INTO directors (directorName) VALUES ('Siobhan Devine');
-INSERT INTO directors (directorName) VALUES ('James Genn');
-INSERT INTO directors (directorName) VALUES ('Renuka Jeyapalan');
-INSERT INTO directors (directorName) VALUES ('Weyni Mengesha');
-INSERT INTO directors (directorName) VALUES ('Kaeden Michlick');
-INSERT INTO directors (directorName) VALUES ('Peter Wellington');
-INSERT INTO directors (directorName) VALUES ('Dawn Wilkinson');
-INSERT INTO directors (directorName) VALUES ('Aleysa Young');
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 1)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 2)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 3)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 4)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 5)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 6)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 7)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 8)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 9)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 10)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 11)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (1, 12)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 13)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 1)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 2)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 3)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 4)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 5)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 6)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 7)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 8)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 9)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 10)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 11)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 12)
+INSERT INTO episodeSeasonNums (seasonNum, EpisodeNum) VALUES (2, 13)
 
 INSERT INTO episodes (seasonNum, episodeNum, episodeTitle, directorId, synopsis) VALUES ('1', '1', 'Gay Discount', 6, 'After being accused of homophobia, Appa decides to offer a store discount to gay customers during Toronto Pride Week — but he doesn''t seem to be very good at determining who qualifies for it. Meanwhile, Umma tries to find a "cool Christian Korean boyfriend" for Janet.');
 INSERT INTO episodes (seasonNum, episodeNum, episodeTitle, directorId, synopsis) VALUES ('1', '2', 'Janet''s Photos', 6, 'When Janet''s photos start getting attention from admirers, Appa tries to prove he''s a better photographer. Meanwhile, Jung decides to apply for a promotion at the car rental agency, to the dismay of Kimchee and Eomma, though for different reasons.');
