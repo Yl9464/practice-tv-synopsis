@@ -3,7 +3,11 @@ const models = require('../models')
 const getAllEpisodes = async (request, response) => {
   try {
     const episodes = await models.Episodes.findAll({
-      attributes: ['seasonNum', 'episodeNum', 'episodeTitle', 'directorId', 'synopsis']
+      attributes: ['seasonNum', 'episodeNum', 'episodeTitle', 'directorId', 'synopsis'],
+      include: [{
+        model: models.Directors,
+        attributes: ['directorName']
+      }]
     })
 
     return episodes
