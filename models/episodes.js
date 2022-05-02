@@ -1,8 +1,7 @@
-const Episodes = (connection, Sequelize, Directors) => {
+const Episodes = (connection, Sequelize, EpisodeSeasonNums, Directors) => {
   return connection.define('episodes', {
     id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-    seasonNum: { type: Sequelize.STRING },
-    episodeNum: { type: Sequelize.STRING },
+    seasonEpisodeId: { type: Sequelize.INTEGER, references: { model: EpisodeSeasonNums, key: 'id' } },
     episodeTitle: { type: Sequelize.STRING },
     directorId: { type: Sequelize.INTEGER, references: { model: Directors, key: 'id' } },
     synopsis: { type: Sequelize.STRING }
