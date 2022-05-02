@@ -20,6 +20,11 @@ const getEpisodeByTitle = async (request, response) => {
 
     const episodeTitle = await models.Episodes.findOne({
       where: { episodeTitle: { [models.Op.like]: `%${title}%` } },
+      attributes: ['seasonNum', 'episodeNum', 'episodeTitle', 'directorId', 'synopsis'],
+      include: [{
+        model: models.Directors,
+        attributes: ['directorName']
+      }]
     })
 
     return episodeTitle

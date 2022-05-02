@@ -15,8 +15,8 @@ const ShowDetails = ShowDetailsModels(connection, Sequelize)
 const Directors = DirectorsModel(connection, Sequelize)
 const Episodes = EpisodesModel(connection, Sequelize, Directors)
 
-Directors.belongsTo(Episodes)
-Episodes.hasMany(Directors)
+Episodes.belongsTo(Directors)
+Directors.hasMany(Episodes)
 
 module.exports = {
   Directors,
