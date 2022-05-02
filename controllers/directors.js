@@ -18,6 +18,28 @@ const getAllDirectors = async (request, response) => {
   }
 }
 
+const getDirectorByName = async (request, response) => {
+  try {
+    const { name } = request.params
+
+    const directorName = await models.Directors.findOne({
+      where: { directorName: { [models.Op.like]: `%${name}%` } },
+      attributes: ['directorName'],
+      include: [{
+        model: models.Episodes,
+        attributes: ['episodeTitle']
+      }]
+    })
+
+    return directorName
+      ? response.send(directorName)
+      : response.sendStatus(404)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
-  getAllDirectors
+  getAllDirectors,
+  getDirectorByName,
 }
