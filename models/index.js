@@ -11,9 +11,9 @@ const connection = new Sequelize(config.database, config.username, config.passwo
   host: config.host, dialect: config.dialect
 })
 
+const ShowDetails = ShowDetailsModels(connection, Sequelize)
 const Directors = DirectorsModel(connection, Sequelize)
 const Episodes = EpisodesModel(connection, Sequelize, Directors)
-const ShowDetails = ShowDetailsModels(connection, Sequelize)
 
 Directors.belongsTo(Episodes)
 Episodes.hasMany(Directors)
