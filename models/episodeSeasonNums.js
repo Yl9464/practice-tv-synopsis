@@ -6,4 +6,4 @@ const EpisodeSeasonNums = (connection, Sequelize) => {
   }, { paranoid: true })
 }
 
-module.exports = { EpisodeSeasonNums }
+module.exports = EpisodeSeasonNums
