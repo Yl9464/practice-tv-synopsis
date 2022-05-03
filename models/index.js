@@ -4,7 +4,6 @@ const allConfigs = require('../configs/sequelize')
 const DirectorsModel = require('./directors')
 const EpisodesModel = require('./episodes')
 const ShowDetailsModels = require('./showDetails')
-const EpisodeSeasonNumsModel = require('./episodeSeasonNums')
 
 const environment = process.env.NODE_ENV || 'development'
 const config = allConfigs[environment]
@@ -15,20 +14,15 @@ const connection = new Sequelize(config.database, config.username, config.passwo
 
 const ShowDetails = ShowDetailsModels(connection, Sequelize)
 const Directors = DirectorsModel(connection, Sequelize)
-const EpisodeSeasonNums = EpisodeSeasonNumsModel(connection, Sequelize)
-const Episodes = EpisodesModel(connection, Sequelize, Directors, EpisodeSeasonNums)
+const Episodes = EpisodesModel(connection, Sequelize, Directors)
 
 Episodes.belongsTo(Directors)
 Directors.hasMany(Episodes)
-
-Episodes.belongsTo(EpisodeSeasonNums)
-EpisodeSeasonNums.hasMany(Episodes)
 
 module.exports = {
   Directors,
   Episodes,
   ShowDetails,
-  EpisodeSeasonNums,
   Op: Sequelize.Op
 }
 

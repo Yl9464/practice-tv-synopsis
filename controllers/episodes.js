@@ -3,7 +3,7 @@ const models = require('../models')
 const getAllEpisodes = async (request, response) => {
   try {
     const episodes = await models.Episodes.findAll({
-      attributes: ['seasonNum', 'episodeNum', 'episodeTitle', 'directorId', 'synopsis'],
+      attributes: ['seasonEpisode', 'episodeTitle', 'directorId', 'synopsis'],
       include: [{
         model: models.Directors,
         attributes: ['directorName']
@@ -24,7 +24,7 @@ const getEpisodeByTitle = async (request, response) => {
 
     const episodeTitle = await models.Episodes.findOne({
       where: { episodeTitle: { [models.Op.like]: `%${title}%` } },
-      attributes: ['seasonNum', 'episodeNum', 'episodeTitle', 'directorId', 'synopsis'],
+      attributes: ['seasonEpisode', 'episodeTitle', 'directorId', 'synopsis'],
       include: [{
         model: models.Directors,
         attributes: ['directorName']
@@ -41,14 +41,14 @@ const getEpisodeByTitle = async (request, response) => {
 
 const getEpisodesBySeason = async (request, response) => {
   try {
-    const { seasonNum } = request.params
+    const { seasonEpisode } = request.params
 
-    const seasonNumber = await models.Episodes.findAllBy({
-      where: { seasonNumber: { [models.Op.all]: `${seasonNum}` } },
+    const seasonAndEpisode = await models.Episodes.findAllBy({
+      where: { seasonEpisode: { [models.Op.all]: `${seasonEpisode}` } },
     })
 
-    return seasonNumber
-      ? response.send(seasonNumber)
+    return seasonAndEpisode
+      ? response.send(seasonAndEpisode)
       : response.sendStatus(404)
   } catch (error) {
     console.log(error)

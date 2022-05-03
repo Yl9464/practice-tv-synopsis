@@ -7,7 +7,7 @@ const app = express()
 app.get('/details', getShowDetails)
 app.get('/episodes', getAllEpisodes)
 app.get('/episodes/:title', getEpisodeByTitle)
-app.get('/episodes/:seasonNum', getEpisodesBySeason)
+app.get('/episodes/:seasonEpisode', getEpisodesBySeason)
 app.get('/directors', getAllDirectors)
 app.get('/directors/:name', getDirectorByName)
 
