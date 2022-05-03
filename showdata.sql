@@ -1,9 +1,9 @@
-CREATE DATABASE tvSynopsis;
-
 CREATE USER 'tvSynopsis'@'localhost' IDENTIFIED WITH mysql_native_password BY 'tv_syn0psis';
 GRANT ALL ON tvSynopsis.* TO 'tvSynopsis'@'localhost';
 
 USE tvSynopsis;
+SELECT * FROM episodes;
+
 CREATE TABLE showDetails (
 id INT auto_increment,
 showTitle VARCHAR(255),
@@ -23,10 +23,10 @@ updatedAt DATETIME DEFAULT NOW(),
 deletedAt DATETIME,
 PRIMARY KEY (id)
 );
-
-CREATE TABLE episodes (
+USE tvsynopsis;
+CREATE TABLE episodes(
 id INT auto_increment,
-seasonEpisode VARCHAR (255)
+seasonEpisode VARCHAR (255),
 episodeTitle VARCHAR (255),
 directorId INT,
 synopsis LONGTEXT,
@@ -34,7 +34,7 @@ createdAt DATETIME DEFAULT NOW(),
 updatedAt DATETIME DEFAULT NOW(),
 deletedAt DATETIME,
 PRIMARY KEY (id),
-FOREIGN KEY (directorId) REFERENCES directors(id),
+FOREIGN KEY (directorId) REFERENCES directors(id)
 );
 
 INSERT INTO showDetails (showTitle, developers, stars) VALUES ('Kim''s Convenience', 'Ins Choi and Kevin White', 'Paul Sun-Hyung Lee, Jean Yoon, Andrea Bang, Simu Liu, Andrew Phung, and Nicole Power');
